@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Klima in Argentinien</string>
+    <string name="ciudad">Stadt</string>
+    <string name="temp">Temperatur</string>
+    <string name="max">Maximal</string>
+    <string name="min">Minimum</string>
+    <string name="humedad">Feuchtigkeit</string>
+    <string name="presion">Druck</string>
+</resources>
