@@ -55,7 +55,6 @@ public class CiudadActivity extends AppCompatActivity {
                 txtMinima.setText(String.valueOf(city.getClima().getTemp_min())+" C°");
                 txtHumedad.setText(String.valueOf(city.getClima().getHumidity())+" %");
                 txtPresion.setText(String.valueOf(city.getClima().getPressure())+" HPA");
-
             }
 
             @Override

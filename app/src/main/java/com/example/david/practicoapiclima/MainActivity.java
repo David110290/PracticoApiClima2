@@ -4,11 +4,16 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +26,40 @@ public class MainActivity extends AppCompatActivity {
     private ListView listaCiudades;
     private CiudadAdapter adapter;
 
+    private SwipeRefreshLayout refreshLista;
+
     private ArrayList<Ciudad> ciudades;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mnu_Agregar:
+                Intent intent = new Intent(this, AgregarActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.mnu_Refresh:
+                update();
+                //refreshLista.setRefreshing(false);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        refreshLista = (SwipeRefreshLayout) findViewById(R.id.refreshLista);
 
         listaCiudades = (ListView) findViewById(R.id.listView);
         ciudades = new ArrayList<Ciudad>();
@@ -48,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
         });
         create();
         update();
+
+        refreshLista.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                update();
+                refreshLista.setRefreshing(false);
+            }
+        });
     }
 
     private void update() {

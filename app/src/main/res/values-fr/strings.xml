@@ -7,4 +7,9 @@
     <string name="min">Minimum</string>
     <string name="humedad">Humidité</string>
     <string name="presion">La pression</string>
+    <string name="mnu_add">Ajouter</string>
+    <string name="mnu_ref">Actualiser</string>
+    <string name="nombre">Nom</string>
+    <string name="codigo">Code</string>
+    <string name="btn_agregar">Ajouter</string>
 </resources>

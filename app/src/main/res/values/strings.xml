@@ -6,4 +6,9 @@
     <string name="min">Minima</string>
     <string name="humedad">Humedad</string>
     <string name="presion">Presión</string>
+    <string name="mnu_add">Agregar</string>
+    <string name="mnu_ref">Refrescar</string>
+    <string name="nombre">Nombre</string>
+    <string name="codigo">Codigo</string>
+    <string name="btn_agregar">Agregar</string>
 </resources>
